@@ -23,6 +23,8 @@ export class AWSBRChat {
     #bedrockClient;
     messages: any[] = [];
     dom_messages;
+    dom_loading;
+    dom_submit;
     chatInterface: HTMLElement | undefined;
     loading: boolean = false;
 
@@ -116,6 +118,14 @@ export class AWSBRChat {
                 </div>
             </div>
             </div>
+            <div id="loader" class="text" *ngIf="loading">
+                <div class="typing-animation">
+                    <div class="typing-dot" style="--delay: 0.2s">•</div>
+                    <div class="typing-dot" style="--delay: 0.3s">•</div>
+                    <div class="typing-dot" style="--delay: 0.4s">•</div>
+                    &nbsp;
+                </div>
+            </div>
             <div class="prompt-container">
             <div class="prompt-body">
                 <div class="prompt">
@@ -143,11 +153,13 @@ export class AWSBRChat {
         }
 
         this.dom_messages = document.querySelector('#chatApp #messages');
+        this.dom_submit = document.querySelector('#chatApp #submit-button');
+        this.dom_loading = document.querySelector('#chatApp #loader');
         this.promptInputElement = document.querySelector('#chatApp #prompt') as HTMLInputElement;
         this.promptInputElement.addEventListener("keyup", this.onInputKeyUp.bind(this));
         this.promptInputElement?.addEventListener("keydown", this.onInputKeyDown.bind(this));
 
-        document.querySelector('#chatApp #submit-button')?.addEventListener('click', this.submitMessage.bind(this));
+        this.dom_submit?.addEventListener('click', this.submitMessage.bind(this));
     }
 
     async sendMessage(prompt: string) {
@@ -302,6 +314,13 @@ export class AWSBRChat {
 
     setLoading(loading: boolean) {
         this.loading = loading;
+        if (loading) {
+            this.dom_submit?.setAttribute("disabled", "disabled");
+            this.dom_loading.style.display = "block";
+        } else {
+            this.dom_submit?.removeAttribute("disabled");
+            this.dom_loading.style.display = "none";
+        }
     }
 
     submitMessage() {

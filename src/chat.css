@@ -331,6 +331,7 @@
     opacity: 1;
     transition: opacity .5s;
     margin: 1em 0;
+    display: none;
 }
 
 .typing-animation {
