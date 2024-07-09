@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+  <script type="module" src="/src/index.ts"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div id="chat-container" style="height: 600px;"></div>
+  </div>
+
+  <script type="module">
+    import { AWSBRChat } from "./src/index";
+
+    addEventListener("DOMContentLoaded", () => {
+      new AWSBRChat({
+        region: "us-west-2",
+        identityPoolId: "",
+        roleArn: "",
+        modelId: ""
+      },
+      {
+        logoUrl: "/public/logo.png",
+        floatingWindow: true, // Override containerId
+        // containerId: "chat-container",
+        webExperience: {
+            title: "My local Bedrock",
+            subtitle: "Welcome to the future",
+            welcomeMessage: "Hey, how can I help you today?"
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

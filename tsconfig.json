@@ -1,0 +1,40 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "useDefineForClassFields": false,
+      "module": "esnext",
+      "lib": ["esnext", "DOM", "DOM.Iterable"],
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "declaration": true,
+      "declarationMap": true,
+      "sourceMap": true,
+      "inlineSources": true,
+      "noImplicitReturns": true,
+      "noImplicitAny": false,
+      "noImplicitThis": true,
+      "allowSyntheticDefaultImports": true,
+      "experimentalDecorators": true,
+      "forceConsistentCasingInFileNames": true,
+      "noImplicitOverride": true,
+      "emitDeclarationOnly": true,
+      // "skipLibCheck": true,
+  
+      /* Bundler mode */
+      "moduleResolution": "node",
+      "allowImportingTsExtensions": true,
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+  
+      /* Linting */
+      "strict": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noFallthroughCasesInSwitch": true
+    },
+    "include": ["src/**/*.ts", "main.ts"],
+    "ts-node": {
+      "files": true
+    }
+  }
+  

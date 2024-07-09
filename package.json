@@ -1,0 +1,42 @@
+{
+    "name": "q-embed-ts",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "main": "./dist/index.umd.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.umd.cjs"
+        }
+    },
+    "scripts": {
+        "dev": "vite --port 8000 --host",
+        "build": "vite build && tsc",
+        "build:website": "vite build --config vite.website.config.js --base=/chatbootai-ui/",
+        "watch": "vite build --watch --minify false",
+        "clean": "npx rimraf dist",
+        "release:check": "semantic-release --dry-run",
+        "postinstall": "npm run build"
+    },
+    "devDependencies": {
+        "typescript": "^5.2.2",
+        "vite": "^5.1.4"
+    },
+    "dependencies": {
+        "@aws-sdk/client-bedrock": "^3.609.0",
+        "@aws-sdk/client-bedrock-runtime": "^3.609.0",
+        "@aws-sdk/client-cognito-identity": "^3.525.0",
+        "@aws-sdk/client-qbusiness": "^3.525.0",
+        "@aws-sdk/client-sts": "^3.525.0",
+        "@types/node": "^20.11.24"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "files": [
+        "dist"
+    ]
+}
