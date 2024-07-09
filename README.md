@@ -4,7 +4,7 @@
 ```javascript
 
 new AWSBRChat({
-    region: "us-west-2",
+    region: "",
     identityPoolId: "",
     roleArn: "",
     modelId?: "" // Default is "anthropic.claude-3-sonnet-20240229-v1:0"
