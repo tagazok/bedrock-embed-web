@@ -27,11 +27,14 @@
     },
     "dependencies": {
         "@aws-sdk/client-bedrock": "^3.609.0",
+        "@aws-sdk/client-bedrock-agent-runtime": "^3.621.0",
         "@aws-sdk/client-bedrock-runtime": "^3.609.0",
         "@aws-sdk/client-cognito-identity": "^3.525.0",
         "@aws-sdk/client-qbusiness": "^3.525.0",
         "@aws-sdk/client-sts": "^3.525.0",
-        "@types/node": "^20.11.24"
+        "@types/node": "^20.11.24",
+        "dompurify": "^3.1.6",
+        "marked": "^13.0.2"
     },
     "engines": {
         "node": ">=18"

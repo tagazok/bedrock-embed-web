@@ -10,6 +10,12 @@
 </head>
 
 <body>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit ab sint officia exercitationem fugit nihil, repudiandae neque corrupti beatae? Velit laborum pariatur nulla quia veritatis eaque eius quae similique explicabo.
+  </p>
+  <p>
+    Hello
+  </p>
   <div id="app">
     <div id="chat-container" style="height: 600px;"></div>
   </div>
@@ -22,19 +28,33 @@
         region: "us-west-2",
         identityPoolId: "",
         roleArn: "",
-        modelId: ""
+        modelId: "",
+        // agent: {
+        //   agentId: "",
+        //   agentAliasId: ""
+        // }
       },
       {
-        logoUrl: "/public/logo.png",
+        // logoUrl: "/public/logo.png",
         floatingWindow: true, // Override containerId
         // containerId: "chat-container",
         webExperience: {
             title: "My local Bedrock",
             subtitle: "Welcome to the future",
             welcomeMessage: "Hey, how can I help you today?"
-        }
+        },
+        // context: "My name is Olivier"
       });
     });
+
+    function getContext() {
+      const htmlSource = document.querySelector("body")?.innerText;
+ 
+        return`
+            Here is the html source code of a web page. Use it as context for the following discussion:
+            ${htmlSource}
+            `;
+    }
   </script>
 </body>
 

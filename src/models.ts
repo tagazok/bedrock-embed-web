@@ -3,10 +3,7 @@ export type AWSConfig = {
     identityPoolId: string;
     roleArn: string;
     modelId?: string;
-    // applicationId: string;
-    // userId: string;
-    // conversationId: string
-    // webExperienceId?: string
+    agent?: any;
 };
 
 export type WebExperience = {
@@ -20,5 +17,6 @@ export type Config = {
     floatingWindow: boolean;
     logoUrl?: string;
     containerId?: string;
-    webExperience?: WebExperience
+    webExperience?: WebExperience;
+    context: string;
 }

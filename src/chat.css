@@ -89,7 +89,10 @@
     }
 
     pre {
+        font-family: inherit;
+        font-size: inherit;
         margin: 0;
+        white-space: inherit;
     }
 
     & .message-list {
