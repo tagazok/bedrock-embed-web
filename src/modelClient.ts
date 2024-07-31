@@ -17,9 +17,10 @@ export class ModelClient {
     }
 
     async sendMessage(messages: any[]) {
-
+        const modelId = this.AWSConfig.modelId || "anthropic.claude-3-sonnet-20240229-v1:0";
+        
         const command = new ConverseStreamCommand({
-            modelId: this.AWSConfig.modelId,
+            modelId: modelId,
             messages: messages,
             inferenceConfig: { maxTokens: 512, temperature: 0.5, topP: 0.9 },
         });

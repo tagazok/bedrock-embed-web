@@ -44,10 +44,8 @@ export class AWSBRChat {
         const credentials = await this.awsCredentialsForAnonymousUser();
 
         if (this.AWSConfig.agent) {
-            // this.initAgent();
             this.#bedrockClient = new AgentClient(this.AWSConfig, this.config, credentials);
         } else {
-            // this.init();
             this.#bedrockClient = new ModelClient(this.AWSConfig, this.config, credentials);
         }
     }
