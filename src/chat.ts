@@ -48,6 +48,10 @@ export class AWSBRChat {
         } else {
             this.#bedrockClient = new ModelClient(this.AWSConfig, this.config, credentials);
         }
+
+        if (this.config?.webExperience) {
+            this.buildWebExperience(this.config.webExperience);
+        }
     }
 
     setup() {
