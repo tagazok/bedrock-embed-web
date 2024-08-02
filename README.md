@@ -2,6 +2,7 @@
 
 ![GIF of how the plugin displays the chat window in an Amplify App using Cognito](./public/demo-floatingwindow.gif)
 
+## How To
 ```javascript
 new AWSBRChat({
         auth: {
@@ -42,7 +43,7 @@ You may want to give access to Bedrock to non-authenticated users
 if you want to give access to Bedrock to authenticated users
 - Set the `cognito.userPoolId`
 
-### How to call Bedrock
+### Bedrock
 There are 2 ways to connect the plugin to Bedrock:
 - By calling a model
 Simply set the `modelId` parameter in the plugin to specify which model you want to call
@@ -50,7 +51,7 @@ Simply set the `modelId` parameter in the plugin to specify which model you want
 Specify the `agent` parameter with the `agentId` and `agentAliasId`
 
 
-### Position your chat window
+### UI configuration
 - Specify the `floadintWindow: true` parameter if you want to have a floating window. The button will be located at the bottom right of your page
 - Specify the id of a dom element in the `containerId` parameter
 Make sure you have such node in your html. Ex:
