@@ -1,5 +1,6 @@
 # bedrock-embed-web
 
+![GIF of how the plugin displays the chat window in an Amplify App using Cognito](./public/demo-floatingwindow.gif)
 
 ```javascript
 new AWSBRChat({
@@ -56,6 +57,9 @@ Make sure you have such node in your html. Ex:
 ```html
 <div id="chat-container" style="height: 400px"></div>
 ```
+
+![Screenshot on how the window is rendered in a container](./public/demo-containerId.png)
+<center>Chat window rendered in an html element</center>
 
 ## Exemple using the application in a React app using Amazon Amplify and Cognito
 

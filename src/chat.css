@@ -6,6 +6,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
+    padding: 0;
     transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
 
     img {
