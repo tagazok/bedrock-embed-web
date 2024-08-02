@@ -2,20 +2,18 @@ import {
     BedrockAgentRuntimeClient,
     InvokeAgentCommand
 } from "@aws-sdk/client-bedrock-agent-runtime";
-import { AWSConfig, Config } from "./models";
+import { Config } from "./models";
 
 export class AgentClient {
     #bedrockClient: BedrockAgentRuntimeClient;
-    AWSConfig: AWSConfig;
     config: Config;
     sessionId: string;
 
-    constructor(awsConfig: AWSConfig, config: Config, credentials: any) {
-        this.AWSConfig = awsConfig;
+    constructor(config: Config, credentials: any) {
         this.config = config;
 
         this.#bedrockClient = new BedrockAgentRuntimeClient({
-            region: awsConfig.region,
+            region: config.bedrock.region,
             credentials: credentials
         });
         this.sessionId = Date.now() + "";
@@ -24,8 +22,8 @@ export class AgentClient {
     async sendMessage(messages: any[]) {
   
         const command = new InvokeAgentCommand({
-            agentId: this.AWSConfig.agent.agentId,
-            agentAliasId: this.AWSConfig.agent.agentAliasId,
+            agentId: this.config.bedrock.agent.agentId,
+            agentAliasId: this.config.bedrock.agent.agentAliasId,
             sessionId: this.sessionId,
             inputText: messages[messages.length - 1].content[0].text
         });

@@ -1,23 +1,21 @@
 import { BedrockRuntimeClient, ConverseStreamCommand } from "@aws-sdk/client-bedrock-runtime";
-import { AWSConfig, Config } from "./models";
+import { Config } from "./models";
 
 export class ModelClient {
     #bedrockClient: BedrockRuntimeClient
-    AWSConfig: AWSConfig;
     config: Config;
 
-    constructor(awsConfig: AWSConfig, config: Config, credentials: any) {
-        this.AWSConfig = awsConfig;
+    constructor(config: Config, credentials: any) {
         this.config = config;
 
         this.#bedrockClient = new BedrockRuntimeClient({
             credentials: credentials,
-            region: this.AWSConfig.region
+            region: this.config.bedrock.region
         });
     }
 
     async sendMessage(messages: any[]) {
-        const modelId = this.AWSConfig.modelId || "anthropic.claude-3-sonnet-20240229-v1:0";
+        const modelId = this.config.bedrock.modelId || "anthropic.claude-3-sonnet-20240229-v1:0";
         
         const command = new ConverseStreamCommand({
             modelId: modelId,

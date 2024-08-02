@@ -11,7 +11,8 @@
 
 <body>
   <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit ab sint officia exercitationem fugit nihil, repudiandae neque corrupti beatae? Velit laborum pariatur nulla quia veritatis eaque eius quae similique explicabo.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit ab sint officia exercitationem fugit nihil,
+    repudiandae neque corrupti beatae? Velit laborum pariatur nulla quia veritatis eaque eius quae similique explicabo.
   </p>
   <p>
     Hello
@@ -24,33 +25,43 @@
     import { AWSBRChat } from "./src/index";
 
     addEventListener("DOMContentLoaded", () => {
+
       new AWSBRChat({
-        region: "us-west-2",
-        identityPoolId: "",
-        roleArn: "",
-        modelId: "",
-        // agent: {
-        //   agentId: "",
-        //   agentAliasId: ""
-        // }
-      },
-      {
-        // logoUrl: "/public/logo.png",
-        floatingWindow: true, // Override containerId
-        // containerId: "chat-container",
-        webExperience: {
+        auth: {
+          region: "",
+          identityPoolId: "",
+          // cognito: {
+          //   userPoolId: ""
+          // },
+          anonymous: {
+            roleArn: ""
+          }
+        },
+        bedrock: {
+          region: "us-west-2",
+          modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
+          // agent: {
+          //   agentId: "",
+          //   agentAliasId: ""
+          // }
+        },
+        ui: {
+          floatingWindow: true,
+          // containerId: "chat-container",
+          webExperience: {
             title: "My local Bedrock",
             subtitle: "Welcome to the future",
             welcomeMessage: "Hey, how can I help you today?"
+          },
         },
-        // context: "My name is Olivier"
+        // context: ""
       });
     });
 
     function getContext() {
       const htmlSource = document.querySelector("body")?.innerText;
- 
-        return`
+
+      return `
             Here is the html source code of a web page. Use it as context for the following discussion:
             ${htmlSource}
             `;

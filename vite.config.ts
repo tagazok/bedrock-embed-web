@@ -13,6 +13,9 @@ export default defineConfig({
             fileName: 'aws-br-embed'
         },
         rollupOptions: {
+            output: {
+                inlineDynamicImports: true
+            }
             // external: Object.keys(pkg.dependencies || {}),
             // external: [
             //     "@aws-sdk/client-cognito-identity",
